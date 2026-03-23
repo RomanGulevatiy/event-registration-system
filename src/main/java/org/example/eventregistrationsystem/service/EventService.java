@@ -1,9 +1,7 @@
 package org.example.eventregistrationsystem.service;
 
-import org.example.eventregistrationsystem.dto.CreateEventRequest;
-import org.example.eventregistrationsystem.dto.EventResponse;
-import org.example.eventregistrationsystem.dto.ParticipantResponse;
-import org.example.eventregistrationsystem.dto.RegisterParticipantRequest;
+import org.example.eventregistrationsystem.dto.request.CreateEventRequest;
+import org.example.eventregistrationsystem.dto.response.EventResponse;
 
 import java.util.List;
 
@@ -14,8 +12,6 @@ import java.util.List;
 public interface EventService {
 
     EventResponse createEvent(CreateEventRequest createEventRequest);
-
-    ParticipantResponse registerParticipant(Long eventId, RegisterParticipantRequest registerParticipantRequest);
 
     List<EventResponse> getActiveEvents();
 }
