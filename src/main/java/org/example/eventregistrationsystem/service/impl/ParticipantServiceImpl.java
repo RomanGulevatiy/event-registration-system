@@ -7,6 +7,7 @@ import org.example.eventregistrationsystem.dto.request.RegisterParticipantReques
 import org.example.eventregistrationsystem.entity.Event;
 import org.example.eventregistrationsystem.entity.Participant;
 import org.example.eventregistrationsystem.entity.enums.RegistrationStatus;
+import org.example.eventregistrationsystem.exception.DuplicateEmailException;
 import org.example.eventregistrationsystem.exception.EventNotFoundException;
 import org.example.eventregistrationsystem.exception.NoAvailableSeatsException;
 import org.example.eventregistrationsystem.mapper.ParticipantMapper;
@@ -34,6 +35,10 @@ public class ParticipantServiceImpl implements ParticipantService {
     public ParticipantResponse registerToEvent(Long eventId, RegisterParticipantRequest registerParticipantRequest) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new EventNotFoundException(eventId));
+
+        if(participantRepository.existsByEmail(registerParticipantRequest.getEmail())) {
+            throw new DuplicateEmailException(registerParticipantRequest.getEmail());
+        }
 
         long registeredCounter = participantRepository.countByEventId(eventId);
         if(registeredCounter >= event.getAvailableSeats()) {

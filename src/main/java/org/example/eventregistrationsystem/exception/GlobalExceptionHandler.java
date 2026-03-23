@@ -36,4 +36,15 @@ public class GlobalExceptionHandler {
                 .timestamp(LocalDateTime.now())
                 .build();
     }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleDuplicateEmailException(DuplicateEmailException exception) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error(exception.getMessage())
+                .message(exception.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
 }

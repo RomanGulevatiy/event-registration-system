@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
 public interface ParticipantRepository extends JpaRepository<Participant, Long> {
 
     long countByEventId(Long eventId);
+
+    boolean existsByEmail(String email);
 }
