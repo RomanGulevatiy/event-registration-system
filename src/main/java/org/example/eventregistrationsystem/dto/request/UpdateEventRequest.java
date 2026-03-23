@@ -1,4 +1,4 @@
-package org.example.eventregistrationsystem.dto;
+package org.example.eventregistrationsystem.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateEventRequest {
+public class UpdateEventRequest {
 
     @NotBlank(message = "Event name is required")
     private String eventName;

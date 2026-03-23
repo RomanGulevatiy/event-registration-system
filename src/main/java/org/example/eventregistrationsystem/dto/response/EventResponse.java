@@ -1,4 +1,4 @@
-package org.example.eventregistrationsystem.dto;
+package org.example.eventregistrationsystem.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,5 +1,7 @@
-package org.example.eventregistrationsystem.dto;
+package org.example.eventregistrationsystem.dto.request;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,14 +19,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateEventRequest {
+public class CreateEventRequest {
 
     @NotBlank(message = "Event name is required")
     private String eventName;
 
     @NotNull(message = "Event date is required")
+    @Future(message = "Event date must be in the future")
     private LocalDateTime eventDate;
 
     @NotNull(message = "Available seats is required")
+    @Min(value = 1, message = "Available seats must be at least {value}")
     private int availableSeats;
 }

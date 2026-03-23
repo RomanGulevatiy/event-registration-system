@@ -1,4 +1,4 @@
-package org.example.eventregistrationsystem.dto;
+package org.example.eventregistrationsystem.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +25,8 @@ public class ParticipantResponse {
     private String email;
 
     private RegistrationStatus registrationStatus;
+
+    private Long eventId;
 
     private LocalDateTime registeredAt;
 }
