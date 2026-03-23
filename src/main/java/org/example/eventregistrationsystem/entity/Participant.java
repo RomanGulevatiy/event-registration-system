@@ -40,6 +40,10 @@ public class Participant {
     @Column(name = "registration_status", nullable = false)
     private RegistrationStatus registrationStatus;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_id", nullable = false)
+    private Event event;
+
     @CreationTimestamp
     @Column(name = "registered_at", updatable = false)
     private LocalDateTime registeredAt;

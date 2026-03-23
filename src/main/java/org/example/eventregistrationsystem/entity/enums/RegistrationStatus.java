@@ -6,6 +6,6 @@ package org.example.eventregistrationsystem.entity.enums;
  */
 public enum RegistrationStatus {
     PENDING,
-    CONFIRMED,
+    REGISTERED,
     CANCELLED
 }

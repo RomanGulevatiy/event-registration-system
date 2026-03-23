@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Roman Gulevatiy on 20.03.2026.
@@ -34,6 +36,9 @@ public class Event {
 
     @Column(name = "available_seats", nullable = false)
     private int availableSeats;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Participant> participants = new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
