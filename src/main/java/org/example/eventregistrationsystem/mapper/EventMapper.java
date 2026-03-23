@@ -1,8 +1,8 @@
 package org.example.eventregistrationsystem.mapper;
 
-import org.example.eventregistrationsystem.dto.CreateEventRequest;
-import org.example.eventregistrationsystem.dto.EventResponse;
-import org.example.eventregistrationsystem.dto.UpdateEventRequest;
+import org.example.eventregistrationsystem.dto.request.CreateEventRequest;
+import org.example.eventregistrationsystem.dto.response.EventResponse;
+import org.example.eventregistrationsystem.dto.request.UpdateEventRequest;
 import org.example.eventregistrationsystem.entity.Event;
 import org.springframework.stereotype.Component;
 

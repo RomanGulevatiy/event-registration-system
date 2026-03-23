@@ -1,8 +1,8 @@
 package org.example.eventregistrationsystem.mapper;
 
-import org.example.eventregistrationsystem.dto.ParticipantResponse;
-import org.example.eventregistrationsystem.dto.RegisterParticipantRequest;
-import org.example.eventregistrationsystem.dto.UpdateParticipantRequest;
+import org.example.eventregistrationsystem.dto.response.ParticipantResponse;
+import org.example.eventregistrationsystem.dto.request.RegisterParticipantRequest;
+import org.example.eventregistrationsystem.dto.request.UpdateParticipantRequest;
 import org.example.eventregistrationsystem.entity.Participant;
 import org.springframework.stereotype.Component;
 
@@ -36,6 +36,7 @@ public class ParticipantMapper {
                 .name(participant.getName())
                 .email(participant.getEmail())
                 .registrationStatus(participant.getRegistrationStatus())
+                .eventId(participant.getEvent().getId())
                 .registeredAt(participant.getRegisteredAt())
                 .build();
     }
