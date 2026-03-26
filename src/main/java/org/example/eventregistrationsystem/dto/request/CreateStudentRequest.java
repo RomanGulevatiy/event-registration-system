@@ -25,5 +25,5 @@ public class CreateStudentRequest {
     private String email;
 
     @NotBlank(message = "Group name is required")
-    private String group;
+    private String groupName;
 }

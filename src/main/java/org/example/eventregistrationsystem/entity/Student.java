@@ -33,8 +33,8 @@ public class Student {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "group", nullable = false)
-    private String group;
+    @Column(name = "group_name", nullable = false)
+    private String groupName;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private StudentCard studentCard;

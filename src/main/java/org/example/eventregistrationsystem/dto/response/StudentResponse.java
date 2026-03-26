@@ -23,7 +23,7 @@ public class StudentResponse {
 
     private String email;
 
-    private String group;
+    private String groupName;
 
     private StudentCardResponse studentCard;
 

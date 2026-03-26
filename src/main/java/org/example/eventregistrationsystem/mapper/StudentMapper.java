@@ -18,7 +18,7 @@ public class StudentMapper {
         return Student.builder()
                 .fullName(request.getFullName())
                 .email(request.getEmail())
-                .group(request.getGroup())
+                .groupName(request.getGroupName())
                 .build();
     }
 
@@ -27,7 +27,7 @@ public class StudentMapper {
                 .id(student.getId())
                 .fullName(student.getFullName())
                 .email(student.getEmail())
-                .group(student.getGroup())
+                .groupName(student.getGroupName())
                 .studentCard(toCardResponse(student.getStudentCard()))
                 .createdAt(student.getCreatedAt())
                 .build();
