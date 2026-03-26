@@ -5,7 +5,6 @@ package org.example.eventregistrationsystem.entity.enums;
  * github github.com/RomanGulevatiy
  */
 public enum RegistrationStatus {
-    PENDING,
     REGISTERED,
     CANCELLED
 }
