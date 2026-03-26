@@ -41,6 +41,6 @@ public class StudentCard {
     private Student student;
 
     @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "issued_at", updatable = false)
     private LocalDateTime issuedAt;
 }

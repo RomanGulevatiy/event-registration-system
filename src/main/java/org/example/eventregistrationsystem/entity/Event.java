@@ -38,7 +38,7 @@ public class Event {
     private int availableSeats;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
-    private List<Participant> participants = new ArrayList<>();
+    private List<EventRegistration> registrations = new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

@@ -36,10 +36,11 @@ public class Student {
     @Column(name = "group", nullable = false)
     private String group;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private StudentCard studentCard;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<EventRegistration> registrations = new ArrayList<>();
 
     @CreationTimestamp
