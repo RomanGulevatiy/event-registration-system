@@ -8,24 +8,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by Roman Gulevatiy on 20.03.2026.
+ * Created by Roman Gulevatiy on 26.03.2026.
  * github github.com/RomanGulevatiy
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterParticipantRequest {
+public class CreateStudentRequest {
 
-    @NotBlank(message = "Participant name is required")
-    private String name;
-
-    @NotBlank(message = "Participant group is required")
-    private String group;
+    @NotBlank(message = "Full name is required")
+    private String fullName;
 
     @Email(message = "Invalid email format")
-    @NotBlank(message = "Participant email is required")
+    @NotBlank(message = "Email is required")
     private String email;
 
-    /// Status will be set to PENDING by default when registering a participant
+    @NotBlank(message = "Group name is required")
+    private String group;
 }

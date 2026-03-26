@@ -7,6 +7,6 @@ package org.example.eventregistrationsystem.exception;
 public class NoAvailableSeatsException extends RuntimeException {
 
     public NoAvailableSeatsException(String name) {
-        super("No available seats for event " + name);
+        super("No available seats for event '" + name + "'");
     }
 }

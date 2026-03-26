@@ -20,8 +20,30 @@ public class GlobalExceptionHandler {
     public ErrorResponse handleEventNotFoundException(EventNotFoundException exception) {
         return ErrorResponse.builder()
                 .status(HttpStatus.NOT_FOUND.value())
-                .error(exception.getMessage())
+                .error("Event Not Found")
                 .message(exception.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
+    @ExceptionHandler(StudentNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handleStudentNotFound(StudentNotFoundException ex) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.NOT_FOUND.value())
+                .error("Student Not Found")
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
+    @ExceptionHandler(InvalidStudentCardException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorResponse handleInvalidCard(InvalidStudentCardException ex) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .error("Invalid Student Card")
+                .message(ex.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();
     }
@@ -31,18 +53,29 @@ public class GlobalExceptionHandler {
     public ErrorResponse handleNoAvailableSeatsException(NoAvailableSeatsException exception) {
         return ErrorResponse.builder()
                 .status(HttpStatus.BAD_REQUEST.value())
-                .error(exception.getMessage())
+                .error("No Available Seats")
                 .message(exception.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();
     }
 
+    @ExceptionHandler(AlreadyRegisteredException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse handleAlreadyRegistered(AlreadyRegisteredException ex) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.CONFLICT.value())
+                .error("Already Registered")
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
     @ExceptionHandler(DuplicateEmailException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.CONFLICT)
     public ErrorResponse handleDuplicateEmailException(DuplicateEmailException exception) {
         return ErrorResponse.builder()
-                .status(HttpStatus.BAD_REQUEST.value())
-                .error(exception.getMessage())
+                .status(HttpStatus.CONFLICT.value())
+                .error("Duplicate Email")
                 .message(exception.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();

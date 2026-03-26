@@ -4,29 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.eventregistrationsystem.entity.enums.RegistrationStatus;
 
 import java.time.LocalDateTime;
 
 /**
- * Created by Roman Gulevatiy on 20.03.2026.
+ * Created by Roman Gulevatiy on 26.03.2026.
  * github github.com/RomanGulevatiy
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ParticipantResponse {
+public class StudentResponse {
 
     private Long id;
 
-    private String name;
+    private String fullName;
 
     private String email;
 
-    private RegistrationStatus registrationStatus;
+    private String group;
 
-    private Long eventId;
+    private StudentCardResponse studentCard;
 
-    private LocalDateTime registeredAt;
+    private LocalDateTime createdAt;
 }

@@ -7,6 +7,6 @@ package org.example.eventregistrationsystem.exception;
 public class DuplicateEmailException extends RuntimeException {
 
     public DuplicateEmailException(String email) {
-        super("Participant with email '" + email + "' is already registered");
+        super("Student with email '" + email + "' already exists");
     }
 }

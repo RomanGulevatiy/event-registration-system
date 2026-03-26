@@ -7,48 +7,39 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.eventregistrationsystem.entity.enums.RegistrationStatus;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 /**
- * Created by Roman Gulevatiy on 20.03.2026.
+ * Created by Roman Gulevatiy on 26.03.2026.
  * github github.com/RomanGulevatiy
  */
 @Entity
-@Table(name = "participants")
+@Table(name = "event_registrations")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Participant {
+public class EventRegistration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @Column(name = "group_name", nullable = false)
-    private String group;
-
-    @Column(name = "email", unique = true, nullable = false)
-    private String email;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "registration_status", nullable = false)
-    private RegistrationStatus registrationStatus;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    @Column(name = "status", nullable = false)
+    private RegistrationStatus status = RegistrationStatus.REGISTERED;
+
     @CreationTimestamp
     @Column(name = "registered_at", updatable = false)
     private LocalDateTime registeredAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 }
